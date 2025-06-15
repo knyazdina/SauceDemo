@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 
@@ -7,7 +8,8 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Description("Проверка логина с пустым полем пароля")
+    @Test(testName = "Негативный тест логина", description = "Проверка логина с пустым полем пароля")
     public void checkLoginWithEmptyPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");
@@ -16,7 +18,8 @@ public class LoginTest extends BaseTest {
                 "Сообщение об ошибке не появилось");
     }
 
-    @Test
+    @Description("Проверка логина с неправильным паролем")
+    @Test(testName = "Негативный тест логина", description = "Проверка логина с неправильным паролем")
     public void checkLoginWithWrongPassword() {
         loginPage.open();
         loginPage.login("standard_user", "1234567");
@@ -25,7 +28,8 @@ public class LoginTest extends BaseTest {
                 "Сообщение об ошибке не появилось");
     }
 
-    @Test
+    @Description("Проверка логина с пустым полем имя пользователя")
+    @Test(testName = "Негативный тест логина", description = "Проверка логина с пустым полем имя пользователя")
     public void checkLoginWithEmptyUsername() {
         loginPage.open();
         loginPage.login("", "secret_sauce");
@@ -34,7 +38,8 @@ public class LoginTest extends BaseTest {
                 "Сообщение об ошибке не появилось");
     }
 
-    @Test
+    @Description("Проверка логина с валидными данными")
+    @Test(testName = "Позитивный тест логина", description = "Проверка логина с валидными данными")
     public void checkLoginWithPositiveCred() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
